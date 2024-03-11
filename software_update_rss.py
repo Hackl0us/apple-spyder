@@ -45,12 +45,13 @@ def main():
         for entry in rss_feed.entries:
             if is_a_previous_time(last_feed_update_time, entry.published):
                 if bool(re.search(software_release_pattern, entry.title)):
-                    if bool(re.search(beta_release_pattern, entry.title)):
-                        beta_release.append(entry.title)
-                        logging.info("Append a BETA release item: " + entry.title)
-                    else:
-                        prod_release.append(entry.title)
-                        logging.info("Append a PROD release item: " + entry.title)
+                    if db.find_and_update_os_ota_record(entry.title, entry.published):
+                        if bool(re.search(beta_release_pattern, entry.title)):
+                            beta_release.append(entry.title)
+                            logging.info("Append a BETA release item: " + entry.title)
+                        else:
+                            prod_release.append(entry.title)
+                            logging.info("Append a PROD release item: " + entry.title)
             else:
                 continue
 

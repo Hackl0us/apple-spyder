@@ -16,3 +16,12 @@ CREATE TABLE IF NOT EXISTS accessory_ota_update
 
 INSERT INTO accessory_ota_update
 VALUES ('A2618','AirPods Pro 2', NULL);
+
+CREATE TABLE IF NOT EXISTS os_ota_update
+(
+    os_name    TEXT PRIMARY KEY NOT NULL,
+    update_time   TEXT
+);
+
+INSERT INTO os_ota_update
+VALUES ('iOS 15.8.2 (19H384)', NULL);
