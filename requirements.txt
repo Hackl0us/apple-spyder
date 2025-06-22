@@ -1,5 +1,4 @@
-feedparser==6.0.10
-Flask==2.3.3
-PyYAML==6.0.1
-requests==2.31.0
-python-dateutil==2.8.2
+feedparser~=6.0.11
+requests~=2.32.3
+boto3~=1.38.36
+loguru~=0.7.3
